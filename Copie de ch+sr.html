@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ثانوية بوخالفة السبتي - أم البواقي</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+      --header-bg: #004d6b;
+      --nav-bg: #005c7f;
+      --link-color: #fff;
+      --link-hover: #ffcc00;
+      --section-bg: #fff;
+      --table-header: #cce5ff;
+      --footer-bg: #003354;
+      --btn-bg: #ff9800;
+      --btn-hover: #ff5722;
+    }
+
+    body.dark {
+      --bg-color: #2d2d2d;
+      --text-color: #eee;
+      --header-bg: #222;
+      --nav-bg: #333;
+      --link-color: #fff;
+      --link-hover: #ffcc00;
+      --section-bg: #3a3a3a;
+      --table-header: #444;
+      --footer-bg: #111;
+      --btn-bg: #ff5722;
+      --btn-hover: #ff9800;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav {
+      background-color: var(--nav-bg);
+      padding: 10px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    nav a {
+      color: var(--link-color);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+    }
+
+    section {
+      padding: 20px;
+      background-color: var(--section-bg);
+    }
+
+    h2 {
+      color: #800000;
+      transition: color 0.3s;
+    }
+
+    .stars {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .stars input {
+      display: none;
+    }
+
+    .stars label {
+      font-size: 30px;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .stars input:checked ~ label {
+      color: #ffcc00;
+    }
+
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: #ffcc00;
+    }
+
+    .stars label:active {
+      color: #ff9800;
+    }
+
+    .toggle-btn {
+      margin: 10px auto;
+      display: block;
+      padding: 10px 20px;
+      background-color: #666;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background-color: var(--btn-hover);
+    }
+
+    .toggle-btn:focus {
+      outline: none;
+    }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+      transition: background-color 0.3s;
+    }
+
+    img {
+      display: block;
+      margin: 15px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #555;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: var(--section-bg);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    th, td {
+      border: 1px solid #666;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--table-header);
+    }
+
+    table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    form {
+      background-color: var(--section-bg);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    button {
+      background-color: var(--btn-bg);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--btn-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>مديرية التربية لولاية أم البواقي</h1>
+    <h2>ثانوية الشهيد بوخالفة السبتي</h2>
+  </header>
+
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">حول الثانوية</a>
+    <a href="#">الشعب</a>
+    <a href="#">إحصائيات</a>
+  </nav>
+
+  <button class="toggle-btn" onclick="toggleDarkMode()">تبديل الوضع الليلي / النهاري</button>
+
+  <section>
+    <h2>أولاً: نبذة تاريخية عن الشهيد بوخالفة السبتي</h2>
+    <p>
+      وُلد سنة 1923 بتوزلين - أم البواقي، ابن فرحات ومزغيش حدة...<br>
+      ناضل في الكشافة الإسلامية إلى جانب موسى بوبكر...<br>
+      وافته المنية سنة 1985.
+    </p>
+
+    <img src="ثانوية بوخالفة السبتي.jpg" width="300" alt="صورة ثانوية">
+
+    <h2>ثانياً: تقييم الموقع</h2>
+    <div class="stars">
+      <input type="radio" id="star5" name="rating" value="5" aria-label="5 نجوم">
+      <label for="star5">★</label>
+      <input type="radio" id="star4" name="rating" value="4" aria-label="4 نجوم">
+      <label for="star4">★</label>
+      <input type="radio" id="star3" name="rating" value="3" aria-label="3 نجوم">
+      <label for="star3">★</label>
+      <input type="radio" id="star2" name="rating" value="2" aria-label="نجمتين">
+      <label for="star2">★</label>
+      <input type="radio" id="star1" name="rating" value="1" aria-label="نجمة واحدة">
+      <label for="star1">★</label>
+    </div>
+
+    <h2>ثالثاً: قائمة الشعب</h2>
+    <ul>
+      <li>جذع مشترك علوم وتكنولوجيا</li>
+      <li>جذع مشترك آداب</li>
+    </ul>
+
+    <h2>جدول الأساتذة</h2>
+    <table>
+      <tr>
+        <th>شعب</th>
+        <th>اسماء الاساتذة </th>
+      </tr>
+      <tr><td>رياضيات</td><td>قليف أسماء</td></tr>
+      <tr><td>فيزياء</td><td>طبيب رضا</td></tr>
+      <tr><td>علوم طبيعة</td><td>عقون كنزة</td></tr>
+      <tr><td>علوم إسلامية</td><td>يوسف خوجة سليمة</td></tr>
+    </table>
+
+    <h2>إحصائيات التلاميذ</h2>
+
+    <table border="1" width="90%" bgcolor="white">
+        <tr bgcolor="#cce5ff">
+            <th>السنة الأولى</th>
+            <th>السنة الثانية</th>
+            <th>السنة الثالثة</th>
+            <th>الذكور</th>
+            <th>الإناث</th>
+            <th>الإجمالي</th>
+        </tr>
+        <tr align="center">
+            <td>214</td>
+            <td>191</td>
+            <td>294</td>
+            <td>299</td>
+            <td>377</td>
+            <td>676</td>
+        </tr>
+    </table>
+
+    <br>
+    <a href="https://www.bac-onec-dz.com/2018/11/blog-post_2.html" target="_blank">
+        <font size="4"><b>اضغط هنا للحصول على المزيد من المعلومات</b></font>
+    </a>
+
+    <h2>رابعاً: اتصل بنا</h2>
+    <form action="#" method="POST">
+      <label for="name">الاسم:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">البريد الإلكتروني:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">الرسالة:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">إرسال</button>
+    </form>
+
+    <h2>خامساً: موقعنا</h2>
+    <iframe src="https://www.google.com/maps/place/%D8%AB%D8%A7%D9%86%D9%88%D9%8A%D8%A9+%D8%A8%D9%88%D8%AE%D8%A7%D9%84%D8%A9+%D8%A7%D9%84%D8%B3%D8%A8%D8%AA%D9%8A+badro%E2%80%AD/@35.8654931,7.1096272,17z/data=!3m1!4b1!4m6!3m5!1s0x12f0d7ee5f25e53b:0x2614f8e3d3542734!8m2!3d35.8654931!4d7.1070576!16s%2Fg%2F1trl7nyx?authuser=0&entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D" width="600" height="450" style="border:0;"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ثانوية بوخالفة السبتي - جميع الحقوق محفوظة</p>
+    <p>تحت إشراف: <b>شبيلي محمد - يوسفي سراج</b></p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
